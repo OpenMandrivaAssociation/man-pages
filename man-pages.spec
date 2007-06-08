@@ -81,7 +81,6 @@ rm -f man1/rpcgen.1
 rm -f man1/rpcgen.1.bz2
 				
 #mv man1/COPYING .
-mv man1/README README.GNU-INFOvsMAN
 
 %install
 rm -rf $RPM_BUILD_ROOT
