@@ -1,7 +1,7 @@
 %define LANG en
 Summary: English man (manual) pages from the Linux Documentation Project
 Name: man-pages
-Version: 2.60
+Version: 2.62
 Release: %mkrel 1
 License: GPL-style
 Group: System/Internationalization
@@ -124,5 +124,3 @@ rm -rf $RPM_BUILD_ROOT
 %_mandir/man*/*
 #%attr(755,root,man)/var/catman/%LANG
 %config(noreplace) %attr(755,root,root)/etc/cron.weekly/makewhatis-%LANG.cron
-
-
