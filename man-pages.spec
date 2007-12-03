@@ -1,7 +1,7 @@
 %define LANG en
 Summary: English man (manual) pages from the Linux Documentation Project
 Name: man-pages
-Version: 2.67
+Version: 2.69
 Release: %mkrel 1
 License: GPL-style
 Group: System/Internationalization
