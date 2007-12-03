@@ -5,7 +5,7 @@ Version: 2.67
 Release: %mkrel 1
 License: GPL-style
 Group: System/Internationalization
-Source: http://ftp.kernel.org/pub/linux/docs/manpages/%name-%version.tar.bz2
+Source: ftp://ftp.kernel.org/pub/linux/docs/man-pages/%name-%version.tar.bz2
 Source1: rpcgen.1
 Source3: ld.so.8
 Source4: ldd.1
