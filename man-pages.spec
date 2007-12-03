@@ -18,7 +18,7 @@ Source11: man-network.tar.bz2
 Patch0: man-pages-1.44-ext3.patch
 #Patch1: man-pages-1.31.iconv.patch.bz2
 #Source2: netman-cvs.tar.bz2
-URL: ftp://ftp.kernel.org/pub/linux/docs/manpages/
+URL:     http://www.kernel.org/doc/man-pages
 # 	was ftp://ftp.win.tue.nl/pub/linux-local/manpages/
 # Where to find it ????
 # (fg) 20010627 Document that quad interpretation "feature" in socket API...
