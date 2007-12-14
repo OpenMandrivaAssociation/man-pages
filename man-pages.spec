@@ -15,7 +15,7 @@ Source8: man9-19971126.tar.bz2
 Source9: man2.tar.bz2
 Source10: strptime.3
 Source11: man-network.tar.bz2
-Patch0: man-pages-1.44-ext3.patch
+Patch0: man-pages-2.72-ext3.patch
 #Patch1: man-pages-1.31.iconv.patch.bz2
 #Source2: netman-cvs.tar.bz2
 URL:     http://www.kernel.org/doc/man-pages
