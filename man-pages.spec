@@ -22,6 +22,7 @@ URL:     http://www.kernel.org/doc/man-pages
 # 	was ftp://ftp.win.tue.nl/pub/linux-local/manpages/
 # Where to find it ????
 # (fg) 20010627 Document that quad interpretation "feature" in socket API...
+Buildroot: %_tmppath/%name-%version-root
 BuildRequires: man => 1.5j-8mdk
 # this prevent auto-install of man-pages for non en locales:
 #Requires: locales-%LANG
