@@ -116,7 +116,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(0644,root,man,755)
-%doc README* *.Announce POSIX-COPYRIGHT Changes
+%doc README* *.Announce Changes
 %dir %_mandir/%LANG
 #%dir /var/cache/man/%LANG
 %verify (not md5 mtime size) /var/cache/man/whatis
