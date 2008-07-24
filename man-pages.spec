@@ -1,7 +1,7 @@
 %define LANG en
 Summary: English man (manual) pages from the Linux Documentation Project
 Name: man-pages
-Version: 3.04
+Version: 3.05
 Release: %mkrel 1
 License: GPL-style
 Group: System/Internationalization
