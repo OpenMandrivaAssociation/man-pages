@@ -1,7 +1,7 @@
 %define LANG en
 Summary: English man (manual) pages from the Linux Documentation Project
 Name: man-pages
-Version: 3.16
+Version: 3.17
 Release: %mkrel 1
 License: GPL-style
 Group: System/Internationalization
@@ -15,7 +15,6 @@ Source8: man9-19971126.tar.bz2
 Source9: man2.tar.bz2
 Source10: strptime.3
 Source11: man-network.tar.bz2
-Patch0: man-pages-2.72-ext3.patch
 #Patch1: man-pages-1.31.iconv.patch.bz2
 #Source2: netman-cvs.tar.bz2
 URL:     http://www.kernel.org/doc/man-pages
@@ -54,8 +53,6 @@ cp -a %SOURCE3 man8
 cp -a %SOURCE4 man1
 cp -a %SOURCE5 man8
 cp -a %SOURCE10 man3
-
-%patch0 -p1
 
 
 %build
