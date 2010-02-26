@@ -116,7 +116,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc README* *.Announce Changes
 %dir %_mandir/%LANG
 #%dir /var/cache/man/%LANG
-%verify (not md5 mtime size) /var/cache/man/whatis
+%verify (not md5 mtime size) %{_mandir}/whatis
 %dir %_mandir/man*p/
 %_mandir/man*/*
 #%attr(755,root,man)/var/catman/%LANG
