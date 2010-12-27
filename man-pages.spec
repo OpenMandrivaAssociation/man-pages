@@ -2,7 +2,7 @@
 Summary: English man (manual) pages from the Linux Documentation Project
 Name: man-pages
 Version: 3.32
-Release: %mkrel 1
+Release: %mkrel 2
 License: GPL-style
 Group: System/Internationalization
 Source: ftp://ftp.kernel.org/pub/linux/docs/man-pages/%name-%version.tar.bz2
@@ -14,7 +14,7 @@ Source6: man-pages-extralocale.tar.bz2
 Source8: man9-19971126.tar.bz2
 Source9: man2.tar.bz2
 Source10: strptime.3
-Source11: man-network.tar.bz2
+Source11: ifcfg.5
 #Patch1: man-pages-1.31.iconv.patch.bz2
 #Source2: netman-cvs.tar.bz2
 URL:     http://www.kernel.org/doc/man-pages
@@ -53,6 +53,7 @@ cp -a %SOURCE3 man8
 cp -a %SOURCE4 man1
 cp -a %SOURCE5 man8
 cp -a %SOURCE10 man3
+cp -a %SOURCE11 man5
 
 
 %build
@@ -73,6 +74,7 @@ rm -f man8/ldconfig.8
 rm -f man1/{getent,iconv,ldd,locale,localedef,sprof}.1
 rm -f man8/{ld.so,rpcinfo}.8
 rm -f man1/rpcgen.1
+rm -f man3/crypt{,_r}.3
 
 # this conflict with glibc
 rm -f man1/rpcgen.1.bz2
@@ -105,7 +107,6 @@ chmod a+x $RPM_BUILD_ROOT/etc/cron.weekly/makewhatis-%LANG.cron
 
 mkdir -p  $RPM_BUILD_ROOT/var/cache/man/%LANG
 mkdir -p  $RPM_BUILD_ROOT{%_mandir/%LANG,/var/catman/}
-tar xfj %SOURCE11 -C $RPM_BUILD_ROOT/%_mandir
 
  
 %clean
