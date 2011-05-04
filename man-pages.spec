@@ -2,7 +2,7 @@
 Summary: English man (manual) pages from the Linux Documentation Project
 Name: man-pages
 Version: 3.32
-Release: %mkrel 2
+Release: %mkrel 3
 License: GPL-style
 Group: System/Internationalization
 Source: ftp://ftp.kernel.org/pub/linux/docs/man-pages/%name-%version.tar.bz2
