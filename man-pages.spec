@@ -1,33 +1,34 @@
-%define LANG en
-Summary: English man (manual) pages from the Linux Documentation Project
-Name: man-pages
-Version: 3.32
-Release: %mkrel 3
-License: GPL-style
-Group: System/Internationalization
-Source: ftp://ftp.kernel.org/pub/linux/docs/man-pages/%name-%version.tar.bz2
-Source1: rpcgen.1
-Source3: ld.so.8
-Source4: ldd.1
-Source5: ldconfig.8
-Source6: man-pages-extralocale.tar.bz2
-Source8: man9-19971126.tar.bz2
-Source9: man2.tar.bz2
-Source10: strptime.3
-Source11: ifcfg.5
+%define		LANG	en
+
+Summary:	English man (manual) pages from the Linux Documentation Project
+Name:		man-pages
+Version:	3.35
+Release:	%mkrel 1
+License:	GPL-style
+Group:		System/Internationalization
+Source:		ftp://ftp.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.gz
+Source1:	rpcgen.1
+Source3:	ld.so.8
+Source4:	ldd.1
+Source5:	ldconfig.8
+Source6:	man-pages-extralocale.tar.bz2
+Source8:	man9-19971126.tar.bz2
+Source9:	man2.tar.bz2
+Source10:	strptime.3
+Source11:	ifcfg.5
 #Patch1: man-pages-1.31.iconv.patch.bz2
 #Source2: netman-cvs.tar.bz2
-URL:     http://www.kernel.org/doc/man-pages
+URL:		http://www.kernel.org/doc/man-pages
 # 	was ftp://ftp.win.tue.nl/pub/linux-local/manpages/
 # Where to find it ????
 # (fg) 20010627 Document that quad interpretation "feature" in socket API...
-Buildroot: %_tmppath/%name-%version-root
-BuildRequires: man => 1.5j-8mdk
+Buildroot:	%{_tmppath}/%{name}-%{version}-root
+BuildRequires:	man
 # this prevent auto-install of man-pages for non en locales:
 #Requires: locales-%LANG
-Requires: man => 1.5j-8mdk
-Autoreqprov: false
-BuildArchitectures: noarch
+Requires:	man
+Autoreqprov:	false
+BuildArch:	noarch
 
 %description
 A large collection of man pages (reference material) from the Linux 
@@ -48,13 +49,12 @@ following sections:
 %prep
 %setup -q -a 9 -a 8 -a6
 
-cp -a %SOURCE1 man1
-cp -a %SOURCE3 man8
-cp -a %SOURCE4 man1
-cp -a %SOURCE5 man8
-cp -a %SOURCE10 man3
-cp -a %SOURCE11 man5
-
+cp -a %{SOURCE1} man1
+cp -a %{SOURCE3} man8
+cp -a %{SOURCE4} man1
+cp -a %{SOURCE5} man8
+cp -a %{SOURCE10} man3
+cp -a %{SOURCE11} man5
 
 %build
 rm -fv man1/{diff,chgrp,chmod,chown,cp,dd,df,dircolors,du,install,dir,vdir}.1
@@ -85,40 +85,38 @@ rm -f man1/rpcgen.1.bz2
 rm -rf %{buildroot}
 
 set +x
-mkdir -p %{buildroot}/%_mandir
+mkdir -p %{buildroot}/%{_mandir}
 for n in 0p 1 1p 2 3 3p 4 5 6 7 8 9; do
-	mkdir %{buildroot}/%_mandir/man$n
+	mkdir %{buildroot}/%{_mandir}/man$n
 done
 for n in man*/*; do
-	cp -a $n %{buildroot}/%_mandir/$n
+	cp -a $n %{buildroot}/%{_mandir}/$n
 done
 
 set -x
 
-LANG='' DESTDIR=%{buildroot} /usr/sbin/makewhatis %{buildroot}/%_mandir/
+LANG='' DESTDIR=%{buildroot} /usr/sbin/makewhatis %{buildroot}/%{_mandir}/
 
 mkdir -p %{buildroot}/etc/cron.weekly
-cat > %{buildroot}/etc/cron.weekly/makewhatis-%LANG.cron << EOF
+cat > %{buildroot}/etc/cron.weekly/makewhatis-%{LANG}.cron << EOF
 #!/bin/bash
-LANG='' /usr/sbin/makewhatis %_mandir/%LANG
+LANG='' /usr/sbin/makewhatis %{_mandir}/%{LANG}
 exit 0
 EOF
-chmod a+x %{buildroot}/etc/cron.weekly/makewhatis-%LANG.cron
+chmod a+x %{buildroot}/etc/cron.weekly/makewhatis-%{LANG}.cron
 
-mkdir -p  %{buildroot}/var/cache/man/%LANG
-mkdir -p  %{buildroot}{%_mandir/%LANG,/var/catman/}
+mkdir -p  %{buildroot}/var/cache/man/%{LANG}
+mkdir -p  %{buildroot}{%{_mandir}/%{LANG},/var/catman/}
 
- 
+
 %clean
 rm -rf %{buildroot}
 
 %files
 %defattr(0644,root,man,755)
 %doc README* *.Announce Changes
-%dir %_mandir/%LANG
-#%dir /var/cache/man/%LANG
+%dir %{_mandir}/%{LANG}
 %verify (not md5 mtime size) %{_mandir}/whatis
-%dir %_mandir/man*p/
-%_mandir/man*/*
-#%attr(755,root,man)/var/catman/%LANG
-%config(noreplace) %attr(755,root,root)/etc/cron.weekly/makewhatis-%LANG.cron
+%dir %{_mandir}/man*p/
+%{_mandir}/man*/*
+%config(noreplace) %attr(755,root,root)/etc/cron.weekly/makewhatis-%{LANG}.cron
