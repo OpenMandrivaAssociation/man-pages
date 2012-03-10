@@ -2,7 +2,7 @@
 
 Summary:	English man (manual) pages from the Linux Documentation Project
 Name:		man-pages
-Version:	3.35
+Version:	3.37
 Release:	%mkrel 1
 License:	GPL-style
 Group:		System/Internationalization
