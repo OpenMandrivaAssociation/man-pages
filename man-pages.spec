@@ -2,8 +2,8 @@
 
 Summary:	English man (manual) pages from the Linux Documentation Project
 Name:		man-pages
-Version:	3.37
-Release:	%mkrel 1
+Version:	3.38
+Release:	1
 License:	GPL-style
 Group:		System/Internationalization
 Source:		ftp://ftp.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.gz
@@ -22,7 +22,6 @@ URL:		http://www.kernel.org/doc/man-pages
 # 	was ftp://ftp.win.tue.nl/pub/linux-local/manpages/
 # Where to find it ????
 # (fg) 20010627 Document that quad interpretation "feature" in socket API...
-Buildroot:	%{_tmppath}/%{name}-%{version}-root
 BuildRequires:	man
 # this prevent auto-install of man-pages for non en locales:
 #Requires: locales-%LANG
