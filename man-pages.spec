@@ -2,7 +2,7 @@
 
 Summary:	English man (manual) pages from the Linux Documentation Project
 Name:		man-pages
-Version:	3.38
+Version:	3.39
 Release:	1
 License:	GPL-style
 Group:		System/Internationalization
@@ -94,12 +94,12 @@ done
 
 set -x
 
-LANG='' DESTDIR=%{buildroot} /usr/sbin/makewhatis %{buildroot}/%{_mandir}/
+LANG='' DESTDIR=%{buildroot} %_bindir/mandb %{buildroot}/%{_mandir}/
 
 mkdir -p %{buildroot}/etc/cron.weekly
 cat > %{buildroot}/etc/cron.weekly/makewhatis-%{LANG}.cron << EOF
 #!/bin/bash
-LANG='' /usr/sbin/makewhatis %{_mandir}/%{LANG}
+LANG='' %_bindir/mandb %{_mandir}/%{LANG}
 exit 0
 EOF
 chmod a+x %{buildroot}/etc/cron.weekly/makewhatis-%{LANG}.cron
@@ -115,7 +115,27 @@ rm -rf %{buildroot}
 %defattr(0644,root,man,755)
 %doc README* *.Announce Changes
 %dir %{_mandir}/%{LANG}
-%verify (not md5 mtime size) %{_mandir}/whatis
 %dir %{_mandir}/man*p/
 %{_mandir}/man*/*
 %config(noreplace) %attr(755,root,root)/etc/cron.weekly/makewhatis-%{LANG}.cron
+%verify (not md5 mtime size) %_mandir/CACHEDIR.TAG.xz
+%dir %_mandir/cat1
+%verify (not md5 mtime size) %_mandir/cat1/CACHEDIR.TAG.xz
+%dir %_mandir/cat2
+%verify (not md5 mtime size) %_mandir/cat2/CACHEDIR.TAG.xz
+%dir %_mandir/cat3
+%verify (not md5 mtime size) %_mandir/cat3/CACHEDIR.TAG.xz
+%dir %_mandir/cat4
+%verify (not md5 mtime size) %_mandir/cat4/CACHEDIR.TAG.xz
+%dir %_mandir/cat5
+%verify (not md5 mtime size) %_mandir/cat5/CACHEDIR.TAG.xz
+%dir %_mandir/cat6
+%verify (not md5 mtime size) %_mandir/cat6/CACHEDIR.TAG.xz
+%dir %_mandir/cat7
+%verify (not md5 mtime size) %_mandir/cat7/CACHEDIR.TAG.xz
+%dir %_mandir/cat8
+%verify (not md5 mtime size) %_mandir/cat8/CACHEDIR.TAG.xz
+%dir %_mandir/cat9
+%verify (not md5 mtime size) %_mandir/cat9/CACHEDIR.TAG.xz
+%verify (not md5 mtime size) %_mandir/index.db.xz
+
