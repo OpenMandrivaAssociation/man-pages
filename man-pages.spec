@@ -2,11 +2,11 @@
 
 Summary:	English man (manual) pages from the Linux Documentation Project
 Name:		man-pages
-Version:	3.39
+Version:	3.41
 Release:	1
 License:	GPL-style
 Group:		System/Internationalization
-Source:		ftp://ftp.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.gz
+Source0:	http://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
 Source1:	rpcgen.1
 Source3:	ld.so.8
 Source4:	ldd.1
@@ -81,8 +81,6 @@ rm -f man1/rpcgen.1.bz2
 #mv man1/COPYING .
 
 %install
-rm -rf %{buildroot}
-
 set +x
 mkdir -p %{buildroot}/%{_mandir}
 for n in 0p 1 1p 2 3 3p 4 5 6 7 8 9; do
@@ -107,9 +105,6 @@ chmod a+x %{buildroot}/etc/cron.weekly/makewhatis-%{LANG}.cron
 mkdir -p  %{buildroot}/var/cache/man/%{LANG}
 mkdir -p  %{buildroot}{%{_mandir}/%{LANG},/var/catman/}
 
-
-%clean
-rm -rf %{buildroot}
 
 %files
 %defattr(0644,root,man,755)
@@ -138,4 +133,3 @@ rm -rf %{buildroot}
 %dir %_mandir/cat9
 %verify (not md5 mtime size) %_mandir/cat9/CACHEDIR.TAG.xz
 %verify (not md5 mtime size) %_mandir/index.db.xz
-
