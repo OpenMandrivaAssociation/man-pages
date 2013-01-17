@@ -82,35 +82,35 @@ rm -f man1/rpcgen.1.bz2
 #mv man1/COPYING .
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 set +x
-mkdir -p $RPM_BUILD_ROOT/%_mandir
+mkdir -p %{buildroot}/%_mandir
 for n in 0p 1 1p 2 3 3p 4 5 6 7 8 9; do
-	mkdir $RPM_BUILD_ROOT/%_mandir/man$n
+	mkdir %{buildroot}/%_mandir/man$n
 done
 for n in man*/*; do
-	cp -a $n $RPM_BUILD_ROOT/%_mandir/$n
+	cp -a $n %{buildroot}/%_mandir/$n
 done
 
 set -x
 
-LANG='' DESTDIR=$RPM_BUILD_ROOT /usr/sbin/makewhatis $RPM_BUILD_ROOT/%_mandir/
+LANG='' DESTDIR=%{buildroot} %{_bindir}/mandb %{buildroot}/%_mandir/
 
-mkdir -p $RPM_BUILD_ROOT/etc/cron.weekly
-cat > $RPM_BUILD_ROOT/etc/cron.weekly/makewhatis-%LANG.cron << EOF
+mkdir -p %{buildroot}/etc/cron.weekly
+cat > %{buildroot}/etc/cron.weekly/makewhatis-%LANG.cron << EOF
 #!/bin/bash
-LANG='' /usr/sbin/makewhatis %_mandir/%LANG
+LANG='' %{_bindir}/mandb %_mandir/%LANG
 exit 0
 EOF
-chmod a+x $RPM_BUILD_ROOT/etc/cron.weekly/makewhatis-%LANG.cron
+chmod a+x %{buildroot}/etc/cron.weekly/makewhatis-%LANG.cron
 
-mkdir -p  $RPM_BUILD_ROOT/var/cache/man/%LANG
-mkdir -p  $RPM_BUILD_ROOT{%_mandir/%LANG,/var/catman/}
+mkdir -p  %{buildroot}/var/cache/man/%LANG
+mkdir -p  %{buildroot}{%_mandir/%LANG,/var/catman/}
 
  
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(0644,root,man,755)
