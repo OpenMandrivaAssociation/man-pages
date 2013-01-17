@@ -1,8 +1,8 @@
 %define LANG en
 Summary: English man (manual) pages from the Linux Documentation Project
 Name: man-pages
-Version: 3.32
-Release: %mkrel 4
+Version: 3.34
+Release: 1
 License: GPL-style
 Group: System/Internationalization
 Source: ftp://ftp.kernel.org/pub/linux/docs/man-pages/%name-%version.tar.bz2
@@ -21,13 +21,12 @@ URL:     http://www.kernel.org/doc/man-pages
 # 	was ftp://ftp.win.tue.nl/pub/linux-local/manpages/
 # Where to find it ????
 # (fg) 20010627 Document that quad interpretation "feature" in socket API...
-Buildroot: %_tmppath/%name-%version-root
 BuildRequires: man => 1.5j-8mdk
 # this prevent auto-install of man-pages for non en locales:
 #Requires: locales-%LANG
 Requires: man => 1.5j-8mdk
 Autoreqprov: false
-BuildArchitectures: noarch
+BuildArch: noarch
 
 %description
 A large collection of man pages (reference material) from the Linux 
@@ -82,8 +81,6 @@ rm -f man1/rpcgen.1.bz2
 #mv man1/COPYING .
 
 %install
-rm -rf %{buildroot}
-
 set +x
 mkdir -p %{buildroot}/%_mandir
 for n in 0p 1 1p 2 3 3p 4 5 6 7 8 9; do
@@ -95,7 +92,7 @@ done
 
 set -x
 
-LANG='' DESTDIR=%{buildroot} %{_bindir}/mandb %{buildroot}/%_mandir/
+LANG='' DESTDIR=%{buildroot} /usr/bin/mandb %{buildroot}/%_mandir/
 
 mkdir -p %{buildroot}/etc/cron.weekly
 cat > %{buildroot}/etc/cron.weekly/makewhatis-%LANG.cron << EOF
@@ -108,18 +105,17 @@ chmod a+x %{buildroot}/etc/cron.weekly/makewhatis-%LANG.cron
 mkdir -p  %{buildroot}/var/cache/man/%LANG
 mkdir -p  %{buildroot}{%_mandir/%LANG,/var/catman/}
 
- 
-%clean
-rm -rf %{buildroot}
-
 %files
 %defattr(0644,root,man,755)
 %doc README* *.Announce Changes
 %dir %_mandir/%LANG
 #%dir /var/cache/man/%LANG
-%verify (not md5 mtime size) %{_mandir}/whatis
+#%verify (not md5 mtime size) %{_mandir}/whatis
 %dir %_mandir/man*p/
 %_mandir/man*/*
+%_mandir/cat*/*
+%_mandir/index.db*
+%_mandir/CACHEDIR.TAG*
 #%attr(755,root,man)/var/catman/%LANG
 %config(noreplace) %attr(755,root,root)/etc/cron.weekly/makewhatis-%LANG.cron
 
