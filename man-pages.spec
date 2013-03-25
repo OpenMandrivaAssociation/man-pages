@@ -1,9 +1,9 @@
-%define		LANG	en
+%define LANG en
 
 Summary:	English man (manual) pages from the Linux Documentation Project
 Name:		man-pages
-Version:	3.41
-Release:	2
+Version:	3.50
+Release:	1
 License:	GPL-style
 Group:		System/Internationalization
 Source0:	http://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
