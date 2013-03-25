@@ -112,5 +112,4 @@ mkdir -p  %{buildroot}{%{_mandir}/%{LANG},/var/catman/}
 %dir %{_mandir}/%{LANG}
 %dir %{_mandir}/man*p/
 %config(noreplace) %attr(755,root,root)/etc/cron.weekly/makewhatis-%{LANG}.cron
-%verify (not md5 mtime size) %{_mandir}/whatis
 %{_mandir}/man*/*
