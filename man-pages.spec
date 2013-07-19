@@ -6,8 +6,13 @@ Version:	3.52
 Release:	1
 License:	GPL-style
 Group:		System/Internationalization
+Url:		http://www.kernel.org/doc/man-pages
+# 	was ftp://ftp.win.tue.nl/pub/linux-local/manpages/
+# Where to find it ????
+# (fg) 20010627 Document that quad interpretation "feature" in socket API...
 Source0:	http://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
 Source1:	rpcgen.1
+#Source2:	netman-cvs.tar.bz2
 Source3:	ld.so.8
 Source4:	ldd.1
 Source5:	ldconfig.8
@@ -16,18 +21,13 @@ Source8:	man9-19971126.tar.bz2
 Source9:	man2.tar.bz2
 Source10:	strptime.3
 Source11:	ifcfg.5
-#Patch1: man-pages-1.31.iconv.patch.bz2
-#Source2: netman-cvs.tar.bz2
-URL:		http://www.kernel.org/doc/man-pages
-# 	was ftp://ftp.win.tue.nl/pub/linux-local/manpages/
-# Where to find it ????
-# (fg) 20010627 Document that quad interpretation "feature" in socket API...
+#Patch1:	man-pages-1.31.iconv.patch.bz2
+BuildArch:	noarch
 BuildRequires:	man
 # this prevent auto-install of man-pages for non en locales:
 #Requires: locales-%LANG
 Requires:	man
 Autoreqprov:	false
-BuildArch:	noarch
 
 %description
 A large collection of man pages (reference material) from the Linux 
@@ -134,3 +134,4 @@ mkdir -p  %{buildroot}{%{_mandir}/%{LANG},/var/catman/}
 %verify (not md5 mtime size) %{_mandir}/cat9/CACHEDIR.TAG*
 %verify (not md5 mtime size) %{_mandir}/index.db*
 %{_mandir}/man*/*
+
