@@ -1,7 +1,5 @@
-removed_sources:
-  man-pages-3.51.tar.xz: 6dc6b54e4ff8cc43a901577d6d56fd724e469b49
 sources:
-  man-pages-3.52.tar.xz: 199fdb9b3576ec4a060c0fc374aa12f22c7204cf
+  man-pages-3.53.tar.xz: e15941069cbdf8e0140c1a86f0158695181e97dc
   man-pages-extralocale.tar.bz2: a4242bbb261dd9a92c55b12440e2babe74ba5ea8
   man2.tar.bz2: 6a20eb1c934ea6694c20f7978293419b993bda6f
   man9-19971126.tar.bz2: 94fc041e507095d468143d114450750bbc50ec8c
