@@ -2,8 +2,8 @@
 
 Summary:	English man (manual) pages from the Linux Documentation Project
 Name:		man-pages
-Version:	3.53
-Release:	2
+Version:	3.58
+Release:	1
 License:	GPL-style
 Group:		System/Internationalization
 Url:		http://www.kernel.org/doc/man-pages
@@ -77,7 +77,7 @@ rm -f man3/crypt{,_r}.3
 
 # this conflict with glibc
 rm -f man1/rpcgen.1.bz2
-				
+
 #mv man1/COPYING .
 
 %install
