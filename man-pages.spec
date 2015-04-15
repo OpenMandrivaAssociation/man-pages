@@ -113,25 +113,15 @@ mkdir -p  %{buildroot}{%{_mandir}/%{LANG},/var/catman/}
 %dir %{_mandir}/man*p/
 %config(noreplace) %attr(755,root,root)/etc/cron.weekly/makewhatis-%{LANG}.cron
 
-%verify (not md5 mtime size) %{_mandir}/CACHEDIR.TAG*
 %dir %_mandir/cat1
-%verify (not md5 mtime size) %{_mandir}/cat1/CACHEDIR.TAG*
 %dir %_mandir/cat2
-%verify (not md5 mtime size) %{_mandir}/cat2/CACHEDIR.TAG*
 %dir %_mandir/cat3
-%verify (not md5 mtime size) %{_mandir}/cat3/CACHEDIR.TAG*
 %dir %_mandir/cat4
-%verify (not md5 mtime size) %{_mandir}/cat4/CACHEDIR.TAG*
 %dir %_mandir/cat5
-%verify (not md5 mtime size) %{_mandir}/cat5/CACHEDIR.TAG*
 %dir %_mandir/cat6
-%verify (not md5 mtime size) %{_mandir}/cat6/CACHEDIR.TAG*
 %dir %_mandir/cat7
-%verify (not md5 mtime size) %{_mandir}/cat7/CACHEDIR.TAG*
 %dir %_mandir/cat8
-%verify (not md5 mtime size) %{_mandir}/cat8/CACHEDIR.TAG*
 %dir %_mandir/cat9
-%verify (not md5 mtime size) %{_mandir}/cat9/CACHEDIR.TAG*
 %verify (not md5 mtime size) %{_mandir}/index.db*
 %{_mandir}/man*/*
 
