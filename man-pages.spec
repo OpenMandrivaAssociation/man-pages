@@ -3,7 +3,7 @@
 Summary:	English man (manual) pages from the Linux Documentation Project
 Name:		man-pages
 Version:	4.00
-Release:	1
+Release:	2
 License:	GPL-style
 Group:		System/Internationalization
 Url:		http://www.kernel.org/doc/man-pages
@@ -77,6 +77,9 @@ rm -f man3/crypt{,_r}.3
 
 # this conflict with glibc
 rm -f man1/rpcgen.1.bz2
+
+# (tpg) https://issues.openmandriva.org/show_bug.cgi?id=1221
+rm -rf man5/attr.5
 
 #mv man1/COPYING .
 
