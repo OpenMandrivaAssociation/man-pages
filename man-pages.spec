@@ -3,7 +3,7 @@
 Summary:	English man (manual) pages from the Linux Documentation Project
 Name:		man-pages
 Version:	4.00
-Release:	3
+Release:	4
 License:	GPL-style
 Group:		System/Internationalization
 Url:		http://www.kernel.org/doc/man-pages
@@ -112,7 +112,6 @@ mkdir -p  %{buildroot}{%{_mandir}/%{LANG},/var/catman/}
 %files
 %defattr(0644,root,man,755)
 %doc README* *.Announce Changes
-%dir %{_mandir}/%{LANG}
 %dir %{_mandir}/man*p/
 %config(noreplace) %attr(755,root,root)/etc/cron.weekly/makewhatis-%{LANG}.cron
 
