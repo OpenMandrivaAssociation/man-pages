@@ -2,7 +2,7 @@
 
 Summary:	English man (manual) pages from the Linux Documentation Project
 Name:		man-pages
-Version:	4.03
+Version:	4.05
 Release:	1
 License:	GPL-style
 Group:		System/Internationalization
@@ -108,9 +108,7 @@ chmod a+x %{buildroot}/etc/cron.weekly/makewhatis-%{LANG}.cron
 mkdir -p  %{buildroot}/var/cache/man/%{LANG}
 mkdir -p  %{buildroot}{%{_mandir}/%{LANG},/var/catman/}
 
-
 %files
-%defattr(0644,root,man,755)
 %doc README* *.Announce Changes
 %dir %{_mandir}/man*p/
 %config(noreplace) %attr(755,root,root)/etc/cron.weekly/makewhatis-%{LANG}.cron
