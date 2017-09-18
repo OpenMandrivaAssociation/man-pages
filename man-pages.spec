@@ -2,7 +2,7 @@
 
 Summary:	English man (manual) pages from the Linux Documentation Project
 Name:		man-pages
-Version:	4.05
+Version:	4.13
 Release:	1
 License:	GPL-style
 Group:		System/Internationalization
@@ -107,6 +107,9 @@ chmod a+x %{buildroot}/etc/cron.weekly/makewhatis-%{LANG}.cron
 
 mkdir -p  %{buildroot}/var/cache/man/%{LANG}
 mkdir -p  %{buildroot}{%{_mandir}/%{LANG},/var/catman/}
+
+# From libnuma-devel
+rm %{buildroot}%{_mandir}/man2/move_pages.2*
 
 %files
 %doc README* *.Announce Changes
