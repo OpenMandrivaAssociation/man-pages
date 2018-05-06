@@ -2,7 +2,7 @@
 
 Summary:	English man (manual) pages from the Linux Documentation Project
 Name:		man-pages
-Version:	4.15
+Version:	4.16
 Release:	1
 License:	GPL-style
 Group:		System/Internationalization
