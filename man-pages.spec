@@ -2,7 +2,7 @@
 
 Summary:	English man (manual) pages from the Linux Documentation Project
 Name:		man-pages
-Version:	5.06
+Version:	5.08
 Release:	1
 License:	GPL-style
 Group:		System/Internationalization
@@ -27,7 +27,7 @@ BuildRequires:	man
 # this prevent auto-install of man-pages for non en locales:
 #Requires: locales-%LANG
 Requires:	man
-Autoreqprov:	false
+Autoreq:	false
 
 %description
 A large collection of man pages (reference material) from the Linux 
@@ -127,4 +127,3 @@ rm %{buildroot}%{_mandir}/man2/move_pages.2*
 %dir %_mandir/cat9
 %verify (not md5 mtime size) %{_mandir}/index.db*
 %{_mandir}/man*/*
-
