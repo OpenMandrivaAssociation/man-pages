@@ -2,7 +2,7 @@
 
 Summary:	English man (manual) pages from the Linux Documentation Project
 Name:		man-pages
-Version:	5.10
+Version:	5.11
 Release:	1
 License:	GPL-style
 Group:		System/Internationalization
@@ -106,7 +106,6 @@ rm %{buildroot}%{_mandir}/man2/move_pages.2*
 %files
 %doc README* *.Announce Changes
 %dir %{_mandir}/man*p/
-
 %dir %_mandir/cat1
 %dir %_mandir/cat2
 %dir %_mandir/cat3
