@@ -97,14 +97,6 @@ set -x
 
 LANG='' DESTDIR=%{buildroot} %_bindir/mandb %{buildroot}/%{_mandir}/
 
-mkdir -p %{buildroot}/etc/cron.weekly
-cat > %{buildroot}/etc/cron.weekly/makewhatis-%{LANG}.cron << EOF
-#!/bin/bash
-LANG='' %_bindir/mandb %{_mandir}/%{LANG}
-exit 0
-EOF
-chmod a+x %{buildroot}/etc/cron.weekly/makewhatis-%{LANG}.cron
-
 mkdir -p  %{buildroot}/var/cache/man/%{LANG}
 mkdir -p  %{buildroot}{%{_mandir}/%{LANG},/var/catman/}
 
@@ -114,7 +106,6 @@ rm %{buildroot}%{_mandir}/man2/move_pages.2*
 %files
 %doc README* *.Announce Changes
 %dir %{_mandir}/man*p/
-%config(noreplace) %attr(755,root,root)/etc/cron.weekly/makewhatis-%{LANG}.cron
 
 %dir %_mandir/cat1
 %dir %_mandir/cat2
