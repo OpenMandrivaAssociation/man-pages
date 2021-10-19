@@ -2,7 +2,7 @@
 
 Summary:	English man (manual) pages from the Linux Documentation Project
 Name:		man-pages
-Version:	5.12
+Version:	5.13
 Release:	1
 License:	GPL-style
 Group:		System/Internationalization
