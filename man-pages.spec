@@ -2,7 +2,7 @@
 
 Summary:	English man (manual) pages from the Linux Documentation Project
 Name:		man-pages
-Version:	5.13
+Version:	6.00
 Release:	1
 License:	GPL-style
 Group:		System/Internationalization
@@ -86,7 +86,7 @@ rm -rf man5/attr.5
 %install
 set +x
 mkdir -p %{buildroot}/%{_mandir}
-for n in 0p 1 1p 2 3 3p 4 5 6 7 8 9; do
+for n in 0p 1 1p 2 2type 3 3const 3head 3p 3type 4 5 6 7 8 9; do
 	mkdir %{buildroot}/%{_mandir}/man$n
 done
 for n in man*/*; do
