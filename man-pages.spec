@@ -2,7 +2,7 @@
 
 Summary:	English man (manual) pages from the Linux Documentation Project
 Name:		man-pages
-Version:	6.01
+Version:	6.02
 Release:	1
 License:	GPL-style
 Group:		System/Internationalization
@@ -104,7 +104,7 @@ mkdir -p  %{buildroot}{%{_mandir}/%{LANG},/var/catman/}
 rm %{buildroot}%{_mandir}/man2/move_pages.2*
 
 %files
-%doc README* *.Announce Changes
+%doc README* Changes
 %dir %{_mandir}/man*p/
 %dir %_mandir/cat1
 %dir %_mandir/cat2
