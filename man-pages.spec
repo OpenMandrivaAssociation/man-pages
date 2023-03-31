@@ -3,7 +3,7 @@
 Summary:	English man (manual) pages from the Linux Documentation Project
 Name:		man-pages
 Version:	6.03
-Release:	1
+Release:	2
 License:	GPL-style
 Group:		System/Internationalization
 Url:		http://www.kernel.org/doc/man-pages
