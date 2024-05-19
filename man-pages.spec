@@ -2,15 +2,15 @@
 
 Summary:	English man (manual) pages from the Linux Documentation Project
 Name:		man-pages
-Version:	6.7
+Version:	6.8
 Release:	1
 License:	GPL-style
 Group:		System/Internationalization
-Url:		http://www.kernel.org/doc/man-pages
+Url:		https://www.kernel.org/doc/man-pages
 # 	was ftp://ftp.win.tue.nl/pub/linux-local/manpages/
 # Where to find it ????
 # (fg) 20010627 Document that quad interpretation "feature" in socket API...
-Source0:	http://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
+Source0:	https://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
 Source1:	rpcgen.1
 #Source2:	netman-cvs.tar.bz2
 Source3:	ld.so.8
