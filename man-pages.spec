@@ -2,7 +2,7 @@
 
 Summary:	English man (manual) pages from the Linux Documentation Project
 Name:		man-pages
-Version:	6.8
+Version:	6.9
 Release:	1
 License:	GPL-style
 Group:		System/Internationalization
@@ -84,16 +84,16 @@ rm -rf man5/attr.5
 #mv man1/COPYING .
 
 %install
-set +x
 mkdir -p %{buildroot}/%{_mandir}
-for n in 0p 1 1p 2 2type 3 3const 3head 3p 3type 4 5 6 7 8 9; do
+for n in 0p 1 1p 2 2const 2type 3 3const 3head 3p 3type 4 5 6 7 8 9; do
 	mkdir %{buildroot}/%{_mandir}/man$n
 done
-for n in man*/*; do
+for n in man[0-9]*/*; do
 	cp -a $n %{buildroot}/%{_mandir}/$n
 done
-
-set -x
+for n in man/man*/*; do
+	cp -a $n %{buildroot}/%{_mandir}/../$n
+done
 
 LANG='' DESTDIR=%{buildroot} %_bindir/mandb %{buildroot}/%{_mandir}/
 
