@@ -3,7 +3,7 @@
 Summary:	English man (manual) pages from the Linux Documentation Project
 Name:		man-pages
 Version:	6.9.1
-Release:	1
+Release:	2
 License:	GPL-style
 Group:		System/Internationalization
 Url:		https://www.kernel.org/doc/man-pages
@@ -11,17 +11,7 @@ Url:		https://www.kernel.org/doc/man-pages
 # Where to find it ????
 # (fg) 20010627 Document that quad interpretation "feature" in socket API...
 Source0:	https://www.kernel.org/pub/linux/docs/man-pages/%{name}-%{version}.tar.xz
-Source1:	rpcgen.1
-#Source2:	netman-cvs.tar.bz2
-Source3:	ld.so.8
-Source4:	ldd.1
-Source5:	ldconfig.8
-Source6:	man-pages-extralocale.tar.bz2
-Source8:	man9-19971126.tar.bz2
-Source9:	man2.tar.bz2
 Source10:	strptime.3
-Source11:	ifcfg.5
-#Patch1:	man-pages-1.31.iconv.patch.bz2
 BuildArch:	noarch
 BuildRequires:	man
 # this prevent auto-install of man-pages for non en locales:
@@ -46,14 +36,8 @@ following sections:
         Section 9:  Kernel internal routines
 
 %prep
-%setup -q -a 9 -a 8 -a6
-
-cp -a %{SOURCE1} man1
-cp -a %{SOURCE3} man8
-cp -a %{SOURCE4} man1
-cp -a %{SOURCE5} man8
+%autosetup -p1
 cp -a %{SOURCE10} man3
-cp -a %{SOURCE11} man5
 
 %build
 rm -fv man1/{diff,chgrp,chmod,chown,cp,dd,df,dircolors,du,install,dir,vdir}.1
@@ -66,13 +50,8 @@ rm -fv man4/{console,fd}.4 man5/{exports,nfs,fstab}.5
 # this one conflicts with bind-utils
 rm -rf man5/resolver.5
 
-# this conflicts with ldconfig -- Geoff
-rm -f man8/ldconfig.8
-
 # those conflict with glibc{,-devel}
-rm -f man1/{getent,iconv,ldd,locale,localedef,sprof}.1
-rm -f man8/{ld.so,rpcinfo}.8
-rm -f man1/rpcgen.1
+rm -f man1/{getent,iconv,locale,localedef,sprof}.1
 rm -f man3/crypt{,_r}.3
 
 # this conflict with glibc
