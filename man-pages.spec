@@ -2,7 +2,7 @@
 
 Summary:	English man (manual) pages from the Linux Documentation Project
 Name:		man-pages
-Version:	6.17
+Version:	6.18
 Release:	1
 License:	GPL-style
 Group:		System/Internationalization
